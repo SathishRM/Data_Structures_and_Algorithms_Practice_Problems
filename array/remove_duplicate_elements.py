@@ -23,5 +23,5 @@ def removeDuplicates(nums: list()) -> int:
     return i+1
 
 num_list = [1,1,2,3,4,4,4,5,8,8,12]
-print(removeDuplicates(num_list))
-print(num_list)
+unique_idx = removeDuplicates(num_list)
+print(num_list[:unique_idx])
