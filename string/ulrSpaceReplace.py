@@ -16,6 +16,7 @@ def spaceReplace(urlString, actualLen):
 def spaceReplaceByteArray(urlString, actualLen):
     '''Replace the spaces in the bytearray with %20 without using any additional variable'''
     totLen = len(urlString)
+    print(actualLen, totLen)
     for i in range(actualLen, 0, -1):
         if chr(urlString[i-1]) == ' ':
             urlString[totLen-1] = ord('0')
