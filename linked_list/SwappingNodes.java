@@ -21,7 +21,9 @@ class ListNode {
 public class SwappingNodes {
 
     public static void main(String[] args) {
-        ListNode newList = swapNodes(new ListNode(10, new ListNode(15)), 1);
+        ListNode newList = anotherSwapNodes(new ListNode(10, new ListNode(15)), 1);
+        //swapNodes(new ListNode(10, new ListNode(15)), 1);
+
         while (newList != null) {
             System.out.println(newList.val);
             newList = newList.next;
@@ -56,6 +58,34 @@ public class SwappingNodes {
         fromFirst.val = fromLast.val;
         fromLast.val = tmpValue;
 
+        return head;
+    }
+
+    //approach-2
+    public static ListNode anotherSwapNodes(ListNode head, int k) {
+        int len=0;
+        ListNode curNode = head, swapNode=null;
+        while (curNode != null) {
+            len++;
+            curNode = curNode.next;
+        }
+        int i=1;
+        curNode = head;
+        while (curNode != null) {
+            if (i==k || i == len-k+1) {
+                if (swapNode != null) {
+                    int tmp = swapNode.val;
+                    swapNode.val = curNode.val;
+                    curNode.val = tmp;
+                    break;
+                }
+                else {
+                    swapNode = curNode;
+                }
+            }
+            i++;
+            curNode = curNode.next;
+        }
         return head;
     }
 
