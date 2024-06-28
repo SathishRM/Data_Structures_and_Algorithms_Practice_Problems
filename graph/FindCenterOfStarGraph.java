@@ -31,23 +31,27 @@ The given edges represent a valid star graph.
  */
 package graph;
 
+import java.util.stream.IntStream;
+
 public class FindCenterOfStarGraph {
+    static int result=Integer.MIN_VALUE;
     public static void main(String[] args) {
         System.out.println(findCenter(new int[][]{{1,2},{2,3},{4,2}}));
     }
 
     public static int findCenter(int[][] edges) {
-        int result=Integer.MIN_VALUE;
+
         for(int i=0;i<edges.length;i++){
             if (result == Integer.MIN_VALUE) {
                 if(edges[i][0] == edges[i+1][0] || edges[i][0] == edges[i+1][1]) result = edges[i][0];
                 else result = edges[i][1];
                 break;
             }
-            // if (!IntStream.of(edges[i]).anyMatch(x -> x == result)) {
-            //     result = -1;
-            //     break;
-            // }
+            // Check if the common node is present in all the edges
+            if (IntStream.of(edges[i]).anyMatch(x -> x == result)) {
+                result = -1;
+                break;
+            }
         }
         return result;
     }
