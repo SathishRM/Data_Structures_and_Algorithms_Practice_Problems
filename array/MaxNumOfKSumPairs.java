@@ -45,4 +45,23 @@ public class MaxNumOfKSumPairs {
         }
         return pairsCount;
     }
+
+    // 2 pointers with sorting
+    public static int maxOperations2Pointers(int[] nums, int k) {
+        if (nums.length < 2) return 0;
+
+        java.util.Arrays.sort(nums);
+        int l = 0, r = nums.length-1, result = 0, c = 0;
+        while(l < r) {
+            c = nums[l] + nums[r];
+            if (c == k) {
+                result++;
+                l++;
+                r--;
+            }
+            else if(c < k) l++;
+            else r--;
+        }
+        return result;
+    }
 }
