@@ -1,4 +1,4 @@
-package bitwiseoperation;
+package others;
 
 public class DecodeXORArray {
     public static void main(String[] args) {

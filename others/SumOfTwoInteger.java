@@ -3,7 +3,7 @@ Calculate the sum of two integers a and b, but you are not allowed to use the op
 Input: a = -2, b = 3
 Output: 1
  */
-package bitwiseoperation;
+package others;
 
 public class SumOfTwoInteger {
     public static void main(String[] args) {
